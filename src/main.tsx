@@ -1,11 +1,11 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import App from "./App.tsx";
 import { createBrowserRouter, Outlet } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import Profile from "./pages/profile/Profile.tsx";
 import Referal from "./pages/referal/Referal.tsx";
+import Main from "./pages/main/Main.tsx";
 import Navigation from "./components/navigation/Navigation.tsx";
 
 export const RootLayout = () => {
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <App />,
+        element: <Main />,
       },
       {
         path: "/profile",
