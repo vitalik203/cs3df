@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function Main() {
-  return <div>Main</div>;
+  return <div className="bg-black min-h-screen">Main</div>;
 }

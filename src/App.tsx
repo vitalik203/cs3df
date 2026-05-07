@@ -3,7 +3,7 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-black min-h-screen">
       <Link to="/profile">Profile</Link>
     </div>
   );

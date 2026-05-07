@@ -2,23 +2,44 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter, Outlet } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import Profile from "./pages/profile/Profile.tsx";
 import Referal from "./pages/referal/Referal.tsx";
+import Navigation from "./components/navigation/Navigation.tsx";
+
+export const RootLayout = () => {
+  return (
+    <>
+      {/* Тепер Navigation знаходиться ВСРЕДИНІ контексту роутера */}
+      <Navigation />
+
+      {/* Outlet працює як "вікно", в якому будуть рендеритись сторінки */}
+      <main>
+        <Outlet />
+      </main>
+    </>
+  );
+};
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
-  },
-  {
-    path: "/profile",
-    element: <Profile />,
-  },
-  {
-    path: "/referal",
-    element: <Referal />,
+    element: <RootLayout />,
+    children: [
+      {
+        index: true,
+        element: <App />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
+      },
+      {
+        path: "/referal",
+        element: <Referal />,
+      },
+    ],
   },
 ]);
 
