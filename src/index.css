@@ -1,4 +1,10 @@
 @import "tailwindcss";
 
+html {
+/* Leaves space at the bottom so the input isn't hugged by the keyboard */
+  scroll-padding-bottom: 20vh; 
+  scroll-behavior: smooth;
+}
+
 :root {
 }
