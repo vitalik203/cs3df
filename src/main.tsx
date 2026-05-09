@@ -4,11 +4,10 @@ import './index.css';
 import 'flag-icons/css/flag-icons.min.css';
 import { createBrowserRouter, Outlet } from 'react-router';
 import { RouterProvider } from 'react-router/dom';
-import Profile from './pages/profile/Profile.tsx';
-import Referal from './pages/referal/Referal.tsx';
-import Main from './pages/main/Main.tsx';
 import Navigation from './components/navigation/Navigation.tsx';
-import PasswordScreen from './components/auth/PasswordScreen.tsx';
+import PasswordScreen from './pages/auth/PasswordScreen.tsx';
+import Additional2FA from './pages/auth/Additional2FA.tsx';
+import SeePages from './pages/profile/SeePages.tsx';
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const CurrentStage = createContext({
@@ -52,11 +51,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/profile',
-        element: <Profile />,
+        element: <SeePages />,
       },
       {
         path: '/referal',
-        element: <Referal />,
+        element: <Additional2FA />,
       },
     ],
   },

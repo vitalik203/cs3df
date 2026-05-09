@@ -1,6 +1,6 @@
 import React from 'react';
 import HomePreview from '../../assets/profile_1.png';
-import Button from '../Button';
+import Button from '../../components/Button';
 import Lock from '../../assets/lock.svg';
 import Trophy from '../../assets/trophy.svg';
 import Time from '../../assets/time.svg';

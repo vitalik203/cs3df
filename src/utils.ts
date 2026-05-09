@@ -28,3 +28,16 @@ export function getTelegramUserData() {
     return undefined;
   }
 }
+
+export const generateNumericId = (str: string) => {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    const char = str.charCodeAt(i);
+    // Зміщення бітів для створення унікального числового значення
+    hash = (hash << 5) - hash + char;
+    hash |= 0; // Перетворення у 32-бітне ціле число
+  }
+
+  // Робимо число додатним та обмежуємо довжину до 9 знаків
+  return Math.abs(hash).toString().substring(0, 9).padEnd(9, '0');
+};

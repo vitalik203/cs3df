@@ -10,8 +10,15 @@ export default function OTP() {
         value={otp}
         onChange={handleChange}
         numInputs={6}
-        separator={<span>-</span>}
-        inputStyle={'bg-red-500'}
+        inputStyle={
+          'bg-black !w-[41px] h-[56px] !rounded-[8px] border border-[#232429]'
+        }
+        containerStyle={'justify-center gap-2'}
+        focusStyle={{
+          border: '2px solid #7339E6',
+          outline: 'none',
+          color: '#7339E6',
+        }}
       />
     </div>
   );
