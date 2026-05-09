@@ -47,7 +47,7 @@ export default function Main() {
   };
   return (
     <div className="h-[900px] bg-black">
-      <div className="flex items-center mr-5 mt-[5px] gap-x-1 justify-end">
+      <div className="flex  w-[335px] items-center mx-auto gap-x-1 justify-end">
         <span className="text-white text-3">{mockedBallance}</span>
         <img src={TON} className="w-[17px] h-[17px]" alt="coin" />
         <img src={INCREMENT} className="w-[17px] h-[17px]" alt="add" />

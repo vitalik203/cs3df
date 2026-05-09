@@ -23,5 +23,5 @@ function renderStage(stage: number) {
 
 export default function SeePages() {
   // const { currentStage } = useContext(CurrentStage);
-  return <div>{renderStage(3)}</div>;
+  return <div>{renderStage(4)}</div>;
 }
