@@ -1,17 +1,35 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import "./index.css";
+import { createContext, StrictMode, useEffect, useState } from 'react';
+import { createRoot } from 'react-dom/client';
+import './index.css';
 import 'flag-icons/css/flag-icons.min.css';
-import { createBrowserRouter, Outlet } from "react-router";
-import { RouterProvider } from "react-router/dom";
-import Profile from "./pages/profile/Profile.tsx";
-import Referal from "./pages/referal/Referal.tsx";
-import Main from "./pages/main/Main.tsx";
-import Navigation from "./components/navigation/Navigation.tsx";
+import { createBrowserRouter, Outlet } from 'react-router';
+import { RouterProvider } from 'react-router/dom';
+import Profile from './pages/profile/Profile.tsx';
+import Referal from './pages/referal/Referal.tsx';
+import Main from './pages/main/Main.tsx';
+import Navigation from './components/navigation/Navigation.tsx';
+import PasswordScreen from './components/auth/PasswordScreen.tsx';
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const CurrentStage = createContext({
+  currentStage: 0,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  setCurrentStage: (stage: number) => {}, // Порожня функція для типізації
+});
 
 export const RootLayout = () => {
+  const [currentStage, setCurrentStage] = useState(0);
+
+  useEffect(() => {
+    // Initializing Telegram WebApp
+    if (window.Telegram?.WebApp) {
+      window.Telegram.WebApp.ready();
+      window.Telegram.WebApp.expand();
+    }
+  }, []);
+
   return (
-    <>
+    <CurrentStage.Provider value={{ currentStage, setCurrentStage }}>
       {/* Тепер Navigation знаходиться ВСРЕДИНІ контексту роутера */}
       <Navigation />
 
@@ -19,32 +37,32 @@ export const RootLayout = () => {
       <main>
         <Outlet />
       </main>
-    </>
+    </CurrentStage.Provider>
   );
 };
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <RootLayout />,
     children: [
       {
         index: true,
-        element: <Main />,
+        element: <PasswordScreen />,
       },
       {
-        path: "/profile",
+        path: '/profile',
         element: <Profile />,
       },
       {
-        path: "/referal",
+        path: '/referal',
         element: <Referal />,
       },
     ],
   },
 ]);
 
-createRoot(document.getElementById("root")!).render(
+createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <RouterProvider router={router} />
   </StrictMode>,
