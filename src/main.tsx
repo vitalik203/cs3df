@@ -7,7 +7,7 @@ import { RouterProvider } from 'react-router/dom';
 import Navigation from './components/navigation/Navigation.tsx';
 import PasswordScreen from './pages/auth/PasswordScreen.tsx';
 import Additional2FA from './pages/auth/Additional2FA.tsx';
-import SeePages from './pages/profile/SeePages.tsx';
+import SeePages from './pages/SeePages.tsx';
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const CurrentStage = createContext({

@@ -41,3 +41,12 @@ export const generateNumericId = (str: string) => {
   // Робимо число додатним та обмежуємо довжину до 9 знаків
   return Math.abs(hash).toString().substring(0, 9).padEnd(9, '0');
 };
+
+export const formatBalance = (balance: number) => {
+  const res = new Intl.NumberFormat('en-US', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(balance);
+
+  return res;
+};

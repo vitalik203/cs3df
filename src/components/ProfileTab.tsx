@@ -1,13 +1,14 @@
 import React from 'react';
 import Increment from '../assets/increment.svg';
-import { getTelegramUserData, type TelegramUserData } from '../utils';
+import {
+  formatBalance,
+  getTelegramUserData,
+  type TelegramUserData,
+} from '../utils';
 
 export default function ProfileTab() {
   const userData: TelegramUserData | undefined = getTelegramUserData();
-  const formatted = new Intl.NumberFormat('en-US', {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  }).format(1250);
+  const formatted = formatBalance(1250);
   return (
     <div className="w-[335px] items-center p-3 flex gap-y-1 h-fit mx-auto rounded-[15px] border bg-[#0D1015] border-[#232429]">
       <div className="flex flex-col">

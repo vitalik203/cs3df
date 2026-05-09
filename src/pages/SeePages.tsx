@@ -1,7 +1,8 @@
-import NumberStage from '../auth/NumberStage';
-import SignInScreen from '../auth/SignInScreen';
-import ProfileTabInProfile from '../../components/ProfileTabInProfile';
-import Profile from './Profile';
+import NumberStage from './auth/NumberStage';
+import SignInScreen from './auth/SignInScreen';
+import Profile from './profile/Profile';
+import Main from './main/Main';
+import Referal from './referal/Referal';
 
 function renderStage(stage: number) {
   switch (stage) {
@@ -11,6 +12,10 @@ function renderStage(stage: number) {
       return <NumberStage />; //Вікно з введенням номера телефону
     case 2:
       return <Profile />; //Профіль
+    case 3:
+      return <Main />; //Головна сторінка з іграми
+    case 4:
+      return <Referal />; //Реферальная страница
     default:
       return <div>Unknown stage</div>;
   }
@@ -18,5 +23,5 @@ function renderStage(stage: number) {
 
 export default function SeePages() {
   // const { currentStage } = useContext(CurrentStage);
-  return <div>{renderStage(2)}</div>;
+  return <div>{renderStage(3)}</div>;
 }
